@@ -9,8 +9,12 @@ services:
       - ENV=development
 
   # Security Engine (Python)
- # sec-engine:
-  #  build:
-   #   context: ./services/sec-engine
-    #environment:
-     # - ENV=development
+  sec-engine:
+    build:
+      context: ./services/sec-engine
+      dockerfile: Dockerfile
+    ports:
+      - "8001:8001"
+    environment:
+      - PORT=8001
+      - ENV=development
