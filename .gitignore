@@ -1,0 +1,20 @@
+# IDE
+.idea/
+.vscode/
+
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+
+# Environments & Dependencies
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Docker
+*.log
