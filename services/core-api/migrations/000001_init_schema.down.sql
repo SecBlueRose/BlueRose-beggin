@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS scans;
+DROP TABLE IF EXISTS projects;
