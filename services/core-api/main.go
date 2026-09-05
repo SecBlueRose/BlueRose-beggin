@@ -49,7 +49,7 @@ func main() {
 
 	dbHost := getEnv("DB_HOST", "postgres")
 	dbUser := getEnv("DB_USER", "aegis_admin")
-	dbPass := getEnv("DB_PASSWORD", "aegis_secure_password")
+	dbPass := getEnv("DB_PASSWORD", "hsrhi3rd*")
 	dbName := getEnv("DB_NAME", "aegis_db")
 	dbPort := getEnv("DB_PORT", "5432")
 
@@ -58,14 +58,14 @@ func main() {
 
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
-		log.Fatalf("Ошибка конфигурации БД: %v", err)
+		log.Fatalf("DB Configuration error: %v", err)
 	}
 	defer db.Close()
 
 	if err := db.Ping(); err != nil {
-		log.Printf("Внимание: база пока недоступна: %v", err)
+		log.Printf("Warning:DB is not available %v", err)
 	} else {
-		log.Println("Успешное подключение к PostgreSQL!")
+		log.Println("PostgreSQL successfully connected!")
 	}
 
 	http.HandleFunc("/health", healthHandler)
@@ -73,6 +73,6 @@ func main() {
 	log.Println("Aegis Core API is listening on port :8080...")
 
 	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatalf("Ошибка запуска сервера: %v", err)
+		log.Fatalf("Server running error: %v", err)
 	}
 }

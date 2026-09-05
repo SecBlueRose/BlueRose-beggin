@@ -5,15 +5,15 @@ FROM golang:1.22-alpine AS builder
 
 # Настраиваем рабочую директорию
 WORKDIR /app
-
-# Инициализируем Go Module (если еще не создан)
 RUN go mod init core-api || true
-
-# Копируем исходный код
 COPY main.go .
 
-# Компилируем статический бинарник без CGO и отладочных символов
-RUN CGO_enabled=0 GOOS=linux go build -ldflags="-s -w" -o core-api main.go
+# Add this line to fetch the required dependency
+RUN go get github.com/lib/pq
+# RUN go mod tidy (Optional: helps clean up dependencies)
+
+# Your existing build command
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o core-api main.go
 
 # =============================================
 # ЭТАП II: Runner(Минимальное и безопасное окружение)
