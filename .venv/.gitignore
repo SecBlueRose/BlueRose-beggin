@@ -18,6 +18,7 @@ __pycache__/
 venv/
 .venv/
 *.egg-info/
+*.pyc
 
 # IDE & OS
 .idea/
