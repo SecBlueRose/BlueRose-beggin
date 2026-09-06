@@ -1,0 +1,31 @@
+@"
+# Binaries & Executables
+*.exe
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+
+# Go
+vendor/
+*.out
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.egg-info/
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Environment variables
+.env
+.env.local
+"@ | Out-File -FilePath .gitignore -Encoding utf8
